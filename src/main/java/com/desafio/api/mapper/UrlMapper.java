@@ -1,4 +1,2 @@
-package com.desafio.api.mapper;
-
-public class UrlMapper {
+package com.desafio.api.mapper;public class UrlMapper {
 }
