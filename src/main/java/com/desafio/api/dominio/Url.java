@@ -1,16 +1,13 @@
 package com.desafio.api.dominio;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Url implements Serializable {
     private static final long serialVersionUID = 1L;
-    
+
     private Long id;
     private String url;
-    private LocalDateTime dataEntrada;
-    private LocalDateTime dataUpdate;
 
     public Url() {
     }
@@ -31,33 +28,17 @@ public class Url implements Serializable {
         this.url = url;
     }
 
-    public LocalDateTime getDataEntrada() {
-        return dataEntrada;
-    }
-
-    public void setDataEntrada(LocalDateTime dataEntrada) {
-        this.dataEntrada = dataEntrada;
-    }
-
-    public LocalDateTime getDataUpdate() {
-        return dataUpdate;
-    }
-
-    public void setDataUpdate(LocalDateTime dataUpdate) {
-        this.dataUpdate = dataUpdate;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Url url1 = (Url) o;
-        return Objects.equals(id, url1.id) && Objects.equals(url, url1.url) && Objects.equals(dataEntrada, url1.dataEntrada) && Objects.equals(dataUpdate, url1.dataUpdate);
+        return Objects.equals(id, url1.id) && Objects.equals(url, url1.url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, url, dataEntrada, dataUpdate);
+        return Objects.hash(id, url);
     }
 
     @Override
@@ -65,8 +46,6 @@ public class Url implements Serializable {
         return "Url{" +
                 "id=" + id +
                 ", url='" + url + '\'' +
-                ", dataEntrada=" + dataEntrada +
-                ", dataUpdate=" + dataUpdate +
                 '}';
     }
 }
