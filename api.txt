@@ -1,0 +1,5 @@
+http://localhost:8087/v1/url/criar
+
+http://localhost:8087/v1/url/buscar
+
+http://localhost:8087/v1/estatistica/
