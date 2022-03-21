@@ -13,6 +13,8 @@ public class UrlEntity implements Serializable {
     private Long id;
     @Column
     private String url;
+    @Column
+    private String urlEncurtada;
 
     public UrlEntity() {
     }
@@ -33,24 +35,33 @@ public class UrlEntity implements Serializable {
         this.url = url;
     }
 
+    public String getUrlEncurtada() {
+        return urlEncurtada;
+    }
+
+    public void setUrlEncurtada(String urlEncurtada) {
+        this.urlEncurtada = urlEncurtada;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UrlEntity url1 = (UrlEntity) o;
-        return Objects.equals(id, url1.id) && Objects.equals(url, url1.url);
+        UrlEntity urlEntity = (UrlEntity) o;
+        return Objects.equals(id, urlEntity.id) && Objects.equals(url, urlEntity.url) && Objects.equals(urlEncurtada, urlEntity.urlEncurtada);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, url);
+        return Objects.hash(id, url, urlEncurtada);
     }
 
     @Override
     public String toString() {
-        return "Url{" +
+        return "UrlEntity{" +
                 "id=" + id +
                 ", url='" + url + '\'' +
+                ", urlEncurtada='" + urlEncurtada + '\'' +
                 '}';
     }
 }
