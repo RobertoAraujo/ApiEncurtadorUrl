@@ -14,11 +14,18 @@ public class ApiController {
     @Autowired
     private UrlService service;
 
-    @PostMapping(value = "/")
+    @PostMapping(value = "/salvar")
     public ResponseEntity<UrlDTO> salvarUrl(@RequestBody UrlDTO urlDto){
         UrlEntity urlEntity = UrlMapper.toEntity(urlDto);
-        service.salva(urlEntity);
-        UrlEntity converter = service.converter(urlEntity);
+//        if (urlDto.getUrl() == null)
+//            throw  new UrlNullExepiton();
+        service.salvar(urlEntity);
+        urlDto.setUrl(urlEntity.getUrlEncurtada());
         return ResponseEntity.ok().body(urlDto);
+    }
+
+    @PostMapping(value = "/buscar")
+    public ResponseEntity<UrlDTO> getUrl(@RequestBody UrlDTO urlDto){
+        return ResponseEntity.ok(UrlMapper.toDTO(service.getUrl(urlDto.getUrl())));
     }
 }
